@@ -1,0 +1,20 @@
+{
+  "name": "extension",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "yarn@3.2.1",
+  "scripts": {
+    "clean": "yarn run -T trash coverage dist",
+    "build": "yarn clean && node build.js"
+  },
+  "dependencies": {
+    "background": "workspace:^",
+    "content-script": "workspace:^",
+    "options": "workspace:^",
+    "popup": "workspace:^",
+    "utils": "workspace:^"
+  },
+  "devDependencies": {
+    "fs-extra": "^10.1.0"
+  }
+}

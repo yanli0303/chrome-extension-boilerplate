@@ -1,0 +1,45 @@
+{
+  "name": "chrome-browser-extension",
+  "packageManager": "yarn@3.2.1",
+  "workspaces": [
+    "utils",
+    "background",
+    "content-script",
+    "options",
+    "popup",
+    "extension"
+  ],
+  "scripts": {
+    "postinstall": "husky install",
+    "clean": "yarn workspaces foreach -tv run clean",
+    "format": "yarn workspaces foreach -tv run format",
+    "lint": "yarn workspaces foreach -tv run lint",
+    "test": "yarn workspaces foreach -tv run test",
+    "coverage": "yarn workspaces foreach -tv run coverage",
+    "build": "yarn workspaces foreach -tv run build"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "@yarnpkg/sdks": "^3.0.0-rc.9",
+    "esbuild": "^0.14.47",
+    "eslint": "^8.17.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.5.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.1",
+    "jest": "^28.1.1",
+    "jest-environment-jsdom": "^28.1.1",
+    "lint-staged": "^13.0.2",
+    "prettier": "^2.7.1",
+    "trash-cli": "^5.0.0",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  }
+}
