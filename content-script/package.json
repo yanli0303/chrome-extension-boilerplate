@@ -3,13 +3,19 @@
   "version": "1.0.0",
   "private": true,
   "packageManager": "yarn@3.2.1",
+  "main": "src/index.ts",
+  "type": "commonjs",
+  "publishConfig": {
+    "source": "src/index.ts",
+    "main": "../extension/content-script/index.js"
+  },
   "scripts": {
-    "clean": "yarn run -T trash coverage dist",
+    "clean": "yarn run -T del -f coverage ../extension/content-script",
     "format": "yarn run -T prettier --write src",
     "lint": "yarn run -T eslint --ext=.ts,.tsx src",
-    "test": "yarn run -T jest",
+    "test": "jest",
     "coverage": "yarn test --coverage",
-    "build": "yarn run -T esbuild src/index.ts --bundle --minify --outdir=dist --format=cjs --target=es6,chrome101,edge101 --sourcemap=external",
+    "build": "yarn run -T microbundle --format cjs --external none",
     "build:watch": "yarn build --watch"
   },
   "dependencies": {

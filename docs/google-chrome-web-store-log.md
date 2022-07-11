@@ -4,9 +4,9 @@ This file keeps a the version history of chrome browser extension.
 
 ## The extension
 
-- Name: Chrome Extension Boilerplate
-- ID: afakeid
-- URL: https://chrome.google.com/webstore/detail/extension-name/afakeid
+- Name: chrome-browser-extension
+- ID: xxx
+- URL: https://chrome.google.com/webstore/detail/xxx/xxx
 
 ## How to publish a new version
 

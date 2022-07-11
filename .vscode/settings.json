@@ -8,7 +8,14 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.words": ["esbuild", "outdir", "unoptimized", "webextensions"],
+  "cSpell.words": [
+    "cssnano",
+    "fontsource",
+    "reduxjs",
+    "treeshake",
+    "unoptimized",
+    "webextensions"
+  ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "eslint.nodePath": ".yarn/sdks",

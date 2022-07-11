@@ -1,12 +1,12 @@
 # Microsoft Edge Web Store version history
 
-This file keeps a the version history of chrome browser extension.
+This file keeps a the version history of edge browser extension.
 
 ## The extension
 
-- Name: Chrome Extension Boilerplate
-- ID: afakeid
-- URL: https://microsoftedge.microsoft.com/addons/detail/extension-name/afakeid
+- Name: edge-browser-extension
+- ID: xxx
+- URL: https://microsoftedge.microsoft.com/addons/detail/xxx/xxx
 
 ## How to publish a new version
 

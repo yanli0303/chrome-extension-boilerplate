@@ -6,13 +6,16 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "clean": "yarn run -T trash coverage dist",
+    "clean": "yarn run -T del coverage dist",
     "format": "yarn run -T prettier --write src",
     "lint": "yarn run -T eslint --ext=.ts src",
     "test": "jest",
     "coverage": "yarn test --coverage",
     "build": "tsc",
     "build:watch": "yarn build --watch"
+  },
+  "dependencies": {
+    "tslib": "^2.4.0"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.190",
