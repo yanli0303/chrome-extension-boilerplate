@@ -1,7 +1,6 @@
-import type { RequestHandler } from 'utils';
+import type { RequestHandler } from '@extension/utils';
 
 export const alert: RequestHandler = ({ body }) => {
-  // eslint-disable-next-line no-alert
-  window.alert(body);
+  window.document.body.innerHTML = body;
   return false;
 };

@@ -13,3 +13,22 @@ export const callFetch = async (url: string, options: RequestInit) => {
   }
   return response;
 };
+
+export const fetchJson = async (url: string, options?: RequestInit) => {
+  const jsonHeaders: HeadersInit = {
+    Accept: 'application/json',
+  };
+
+  if (options?.body) {
+    jsonHeaders['Content-Type'] = 'application/json;charset=UTF-8';
+  }
+
+  const response = await callFetch(url, {
+    ...options,
+    headers: {
+      ...jsonHeaders,
+      ...options?.headers,
+    },
+  });
+  return response.json();
+};

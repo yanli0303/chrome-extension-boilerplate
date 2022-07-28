@@ -1,30 +1,42 @@
-import { fetchGetJson, fetchPostJson } from './json';
-
-export interface HttpServer {
-  serverUrl: string;
-  accessToken: string;
-}
+import { fetchJson } from './callFetch';
+import { joinUrl } from './joinUrl';
 
 export class HttpClient {
   serverUrl?: string;
 
-  accessToken?: string;
+  loadServerUrl?: () => Promise<string>;
 
-  loadServer?: () => Promise<string>;
+  async getServerUrl() {
+    if (!this.serverUrl && this.loadServerUrl) {
+      this.serverUrl = await this.loadServerUrl();
+    }
+
+    return this.serverUrl;
+  }
+
+  async buildUrl(api: string) {
+    const serverUrl = await this.getServerUrl();
+    if (!serverUrl) {
+      throw new Error('Base Server URL is not set.');
+    }
+
+    return joinUrl(serverUrl, api);
+  }
+
+  accessToken?: string;
 
   loadAccessToken?: () => Promise<string>;
 
-  async isAuthenticated() {
-    if (this.accessToken) {
-      return true;
-    }
-
-    if (this.loadAccessToken) {
+  async getAccessToken() {
+    if (!this.accessToken && this.loadAccessToken) {
       this.accessToken = await this.loadAccessToken();
-      return !!this.accessToken;
     }
 
-    return false;
+    return this.accessToken;
+  }
+
+  async isAuthenticated() {
+    return !!(await this.getAccessToken());
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -34,63 +46,42 @@ export class HttpClient {
     };
   }
 
-  async buildUrl(api: string) {
-    if (!this.serverUrl && this.loadServer) {
-      this.serverUrl = await this.loadServer();
-    }
-
-    if (!this.serverUrl) {
-      throw new Error('Base Server URL is not set.');
-    }
-
-    return `${this.serverUrl}/${api}`.replace(/\/\//g, '/');
-  }
-
-  private async addAuthHeader(
-    options?: Omit<RequestInit, 'method'>
-  ): Promise<Omit<RequestInit, 'method'>> {
-    if (!this.accessToken && this.loadAccessToken) {
-      this.accessToken = await this.loadAccessToken();
-    }
-
-    if (!this.accessToken) {
+  private async addAuthHeader(options?: RequestInit): Promise<RequestInit> {
+    const accessToken = await this.getAccessToken();
+    if (!accessToken) {
       throw new Error('Auth Token is not set.');
     }
 
     return {
       ...options,
       headers: {
-        ...(options?.headers || {}),
-        ...this.makeAuthHeader(this.accessToken),
+        ...this.makeAuthHeader(accessToken),
+        ...options?.headers,
       },
     };
   }
 
-  async getJsonNoAuth(api: string, options?: Omit<RequestInit, 'method'>) {
+  async fetchJson(api: string, auth: boolean = true, options?: RequestInit) {
     const url = await this.buildUrl(api);
-    return fetchGetJson(url, options);
-  }
+    let requestOptions = options;
+    if (auth) {
+      requestOptions = await this.addAuthHeader(requestOptions);
+    }
 
-  async getJson(api: string, options?: Omit<RequestInit, 'method'>) {
-    const getOptions = await this.addAuthHeader(options);
-    return this.getJsonNoAuth(api, getOptions);
-  }
-
-  async postJsonNoAuth(
-    api: string,
-    body: any,
-    options?: Omit<RequestInit, 'method'>
-  ) {
-    const url = await this.buildUrl(api);
-    return fetchPostJson(url, body, options);
+    return fetchJson(url, requestOptions);
   }
 
   async postJson(
     api: string,
     body: any,
-    options?: Omit<RequestInit, 'method'>
+    auth: boolean = true,
+    options?: RequestInit
   ) {
-    const postOptions = await this.addAuthHeader(options);
-    return this.postJsonNoAuth(api, body, postOptions);
+    const postOptions = {
+      method: 'POST',
+      body: JSON.stringify(body),
+      ...options,
+    };
+    return this.fetchJson(api, auth, postOptions);
   }
 }

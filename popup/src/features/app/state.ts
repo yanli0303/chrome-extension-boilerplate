@@ -1,13 +1,10 @@
+import type { SerializedError } from '@reduxjs/toolkit';
 import type { RootState } from '../../app/store';
 
 export interface AppState {
   isLoading: boolean;
-  settings: {
-    serverUrl: string | null;
-  };
-  error: Error | string | null;
+  serverUrl?: string;
+  error?: Error | SerializedError | string;
 }
 
-export const selectAppIsLoading = (state: RootState) => state.app.isLoading;
-export const selectAppError = (state: RootState) => state.app.error;
-export const selectAppSettings = (state: RootState) => state.app.settings;
+export const selectApp = (state: RootState) => state.app;

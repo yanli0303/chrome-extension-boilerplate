@@ -2,10 +2,20 @@
   "env": {
     "browser": true,
     "es6": true,
-    "jest": true,
     "webextensions": true
   },
   "extends": ["airbnb", "airbnb-typescript"],
+  "overrides": [
+    {
+      "env": {
+        "jest": true
+      },
+      "files": ["**/*.test.{ts,tsx}"],
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
+    }
+  ],
   "parserOptions": {
     "project": "./tsconfig.json"
   },

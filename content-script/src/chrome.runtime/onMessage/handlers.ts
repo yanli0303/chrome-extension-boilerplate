@@ -1,5 +1,4 @@
-import type { RequestHandler, ResponseHandler } from 'utils';
-
+import type { RequestHandler, ResponseHandler } from '@extension/utils';
 import { alert } from './alert';
 
 export const requestHandlers: { [key: string]: RequestHandler } = {

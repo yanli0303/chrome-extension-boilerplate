@@ -9,27 +9,19 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "cSpell.words": [
-    "cssnano",
+    "esbuild",
     "fontsource",
+    "outdir",
     "reduxjs",
-    "treeshake",
-    "unoptimized",
+    "vite",
     "webextensions"
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "eslint.nodePath": ".yarn/sdks",
   "files.exclude": {
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     "**/node_modules": true,
     ".git": true
-  },
-  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
-  "search.exclude": {
-    "**/.pnp.*": true,
-    "**/.yarn": true
-  },
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.tsdk": ".yarn/sdks/typescript/lib"
+  }
 }

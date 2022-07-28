@@ -1,27 +1,19 @@
 {
-  "name": "utils",
+  "name": "@extension/utils",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "yarn@3.2.1",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "clean": "yarn run -T del coverage dist",
-    "format": "yarn run -T prettier --write src",
-    "lint": "yarn run -T eslint --ext=.ts src",
+    "clean": "del coverage dist",
+    "format": "prettier --write src",
+    "lint": "eslint --ext=.ts src",
     "test": "jest",
-    "coverage": "yarn test --coverage",
+    "coverage": "jest --coverage",
     "build": "tsc",
     "build:watch": "yarn build --watch"
   },
   "dependencies": {
     "tslib": "^2.4.0"
-  },
-  "devDependencies": {
-    "@types/chrome": "^0.0.190",
-    "@types/jest": "^28.1.3",
-    "jest": "^28.1.1",
-    "ts-jest": "^28.0.5",
-    "typescript": "^4.7.4"
   }
 }

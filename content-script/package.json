@@ -2,30 +2,17 @@
   "name": "content-script",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "yarn@3.2.1",
-  "main": "src/index.ts",
-  "type": "commonjs",
-  "publishConfig": {
-    "source": "src/index.ts",
-    "main": "../extension/content-script/index.js"
-  },
   "scripts": {
-    "clean": "yarn run -T del -f coverage ../extension/content-script",
-    "format": "yarn run -T prettier --write src",
-    "lint": "yarn run -T eslint --ext=.ts,.tsx src",
+    "clean": "del -f coverage ../extension/content-script",
+    "format": "prettier --write src",
+    "lint": "eslint --ext=.ts,.tsx src",
     "test": "jest",
-    "coverage": "yarn test --coverage",
-    "build": "yarn run -T microbundle --format cjs --external none",
-    "build:watch": "yarn build --watch"
+    "coverage": "jest --coverage",
+    "build": "node esbuild.js",
+    "build:watch": "ESBUILD_WATCH=true yarn build"
   },
   "dependencies": {
-    "utils": "workspace:^"
-  },
-  "devDependencies": {
-    "@types/chrome": "^0.0.190",
-    "@types/jest": "^28.1.3",
-    "jest": "^28.1.1",
-    "ts-jest": "^28.0.5",
-    "typescript": "^4.7.4"
+    "tslib": "^2.4.0",
+    "@extension/utils": "1.0.0"
   }
 }

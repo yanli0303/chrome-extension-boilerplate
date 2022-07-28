@@ -8,6 +8,7 @@
   "content_scripts": [
     {
       "all_frames": true,
+      "css": ["content-script/index.css"],
       "js": ["content-script/index.js"],
       "matches": ["<all_urls>"]
     }
@@ -20,13 +21,6 @@
     "page": "options/index.html",
     "open_in_tab": false
   },
-  "permissions": [
-    "cookies",
-    "storage",
-    "unlimitedStorage",
-    "tabs",
-    "webRequest",
-    "webNavigation"
-  ],
+  "permissions": ["cookies", "storage", "tabs", "webRequest", "webNavigation"],
   "version": "1.0"
 }

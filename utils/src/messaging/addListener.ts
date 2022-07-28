@@ -1,10 +1,10 @@
+import type { RequestHandlers, ResponseHandlers } from './MessageHandler';
 import {
-  isRecipient,
+  MessageAddress,
   RequestMessage,
   ResponseMessage,
-  MessageAddress,
+  isRecipient,
 } from './RuntimeMessage';
-import type { RequestHandlers, ResponseHandlers } from './MessageHandler';
 
 export const addListener = (
   to: MessageAddress,
@@ -13,7 +13,8 @@ export const addListener = (
 ) =>
   chrome.runtime.onMessage.addListener(
     (message, sender, sendResponse): boolean => {
-      // console.warn(to, message, sender);
+      // eslint-disable-next-line no-console
+      console.log(`${to} received message:`, message);
       if (!isRecipient(message, to)) return false;
 
       const { type } = message;

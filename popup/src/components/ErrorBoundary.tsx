@@ -26,18 +26,22 @@ class ErrorBoundary extends React.Component {
     const { error, errorInfo } = this.state as ErrorBoundaryState;
     if (errorInfo) {
       return (
-        <div>
-          <h2>Something went wrong.</h2>
-          <details style={{ whiteSpace: 'pre-wrap' }}>
-            {error && error.toString()}
-            <br />
-            {errorInfo.componentStack}
-          </details>
+        <div
+          style={{
+            padding: '1rem',
+            whiteSpace: 'pre-wrap',
+            wordBreak: 'break-all',
+          }}
+        >
+          {error && error.toString()}
+          <br />
+          {errorInfo.componentStack}
         </div>
       );
     }
 
     // Return children components in case of no error
+    // eslint-disable-next-line react/prop-types
     const { children } = this.props as any;
     return children;
   }

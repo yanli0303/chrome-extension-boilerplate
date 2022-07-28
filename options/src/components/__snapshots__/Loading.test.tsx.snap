@@ -11,7 +11,7 @@ Object {
         <span
           class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
           role="progressbar"
-          style="width: 36px; height: 36px;"
+          style="width: 2rem; height: 2rem;"
         >
           <svg
             class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
@@ -37,7 +37,7 @@ Object {
       <span
         class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
         role="progressbar"
-        style="width: 36px; height: 36px;"
+        style="width: 2rem; height: 2rem;"
       >
         <svg
           class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"

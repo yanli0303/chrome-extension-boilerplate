@@ -1,4 +1,4 @@
-import type { RequestHandler } from 'utils';
+import type { RequestHandler } from '@extension/utils';
 
 export const login: RequestHandler = ({ body }) => {
   if (typeof body !== 'string' || !body) {
