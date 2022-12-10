@@ -9,10 +9,14 @@ A project template for building Google Chrome Extensions.
 - [Yarn Workspaces (monorepo)](https://yarnpkg.com/features/workspaces): put code files in different packages to enforce code isolation.
 - [TypeScript v4](https://www.typescriptlang.org/).
 - [React v18](https://reactjs.org).
-- [Vite v3](https://vitejs.dev/): for popup and options pages.
-- [esbuild v0.14](https://esbuild.github.io/): for building background service worker and content scripts.
+- [Emotion v11](https://emotion.sh/).
+- [Material UI v5](https://mui.com/).
+- [Redux v4](https://redux.js.org/).
+- [React Router v6](https://reactrouter.com/).
+- [Vite v4](https://vitejs.dev/): for popup and options pages.
+- [esbuild v0.16](https://esbuild.github.io/): for building background service worker and content scripts.
 - [ESLint v8](https://eslint.org/) + [Prettier v2](https://prettier.io/) + [Airbnb](https://github.com/airbnb/javascript).
-- [Jest v28](https://jestjs.io/).
+- [vitest v0.25](https://vitest.dev/).
 - [lint-staged v13](https://github.com/okonet/lint-staged): format code files before committing.
 
 ## Development
@@ -38,7 +42,7 @@ See [build.sh](./build.sh)
     -e VITE_APP_VERSION=$VITE_APP_VERSION \
     -e VITE_GIT_REVISION=$(git rev-parse HEAD) \
     -w /mnt/workspace \
-    node:16-alpine \
+    node:18-alpine \
     /bin/sh -c /mnt/workspace/build.sh
   ```
 
@@ -50,8 +54,6 @@ To run Unit Tests:
 
 ```sh
 yarn install
-
-yarn workspace @extension/utils build
 yarn test
 ```
 
@@ -71,6 +73,7 @@ yarn test
 - `yarn test` - run tests.
 - `yarn coverage` - run tests and reports code coverage.
 - `yarn build` - transpile TypeScript to ES6, bundle, minify..etc.
+- `yarn rebuild` - `yarn clean && yarn build`.
 - `yarn build:watch` - watch mode, automatically transpile source files when changed.
 
 ## Yarn workspace

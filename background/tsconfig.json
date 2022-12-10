@@ -1,8 +1,0 @@
-{
-  "compilerOptions": {
-    "declaration": false,
-    "declarationDir": null
-  },
-  "extends": "../tsconfig.json",
-  "include": ["src"]
-}

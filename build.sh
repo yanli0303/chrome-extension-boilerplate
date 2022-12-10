@@ -18,7 +18,6 @@ yarn --version
 yarn install
 yarn lint
 yarn clean
-yarn workspace @extension/utils build
 yarn coverage
 yarn build
 sed -i "s/1.0/$VITE_APP_VERSION/" extension/manifest.json

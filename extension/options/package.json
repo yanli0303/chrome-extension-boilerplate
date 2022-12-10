@@ -1,0 +1,28 @@
+{
+  "name": "options",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "del -f coverage ../dist/options",
+    "format": "prettier --write src",
+    "lint": "eslint --ext=.ts,.tsx src",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "build": "vite build",
+    "rebuild": "yarn clean && yarn build",
+    "dev": "vite build --watch"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@localhost/ui": "*",
+    "@localhost/utils": "*",
+    "@mui/icons-material": "^5.10.16",
+    "@mui/material": "^5.10.17",
+    "@reduxjs/toolkit": "^1.9.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5"
+  }
+}

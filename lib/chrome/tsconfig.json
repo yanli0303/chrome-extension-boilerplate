@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "noEmit": false,
+    "outDir": "dist",
+    "rootDir": "src",
+    "types": ["chrome", "vitest/globals"]
+  },
+  "extends": "../../tsconfig.json",
+  "include": ["src"]
+}

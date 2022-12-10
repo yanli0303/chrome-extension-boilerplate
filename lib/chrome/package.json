@@ -1,0 +1,21 @@
+{
+  "name": "@localhost/chrome",
+  "description": "Web extension chrome.* API wrappers.",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index",
+  "types": "dist/index",
+  "scripts": {
+    "clean": "del coverage dist",
+    "format": "prettier --write src",
+    "lint": "eslint --ext=.ts src",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "build": "tsc",
+    "rebuild": "yarn clean && yarn build",
+    "dev": "yarn build --watch --preserveWatchOutput"
+  },
+  "files": [
+    "dist"
+  ]
+}

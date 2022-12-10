@@ -17,7 +17,9 @@ yarn-debug.log*
 yarn-error.log*
 .yarn-integrity
 
-/extension/background
-/extension/content-script
-/extension/options
-/extension/popup
+!/extension/dist/images
+!/extension/dist/manifest.json
+/extension/dist/background
+/extension/dist/content-script
+/extension/dist/options
+/extension/dist/popup

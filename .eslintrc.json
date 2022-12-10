@@ -7,10 +7,7 @@
   "extends": ["airbnb", "airbnb-typescript"],
   "overrides": [
     {
-      "env": {
-        "jest": true
-      },
-      "files": ["**/*.test.{ts,tsx}"],
+      "files": ["**/*.test.{ts,tsx}", "**/vitest.config.ts"],
       "rules": {
         "import/no-extraneous-dependencies": "off"
       }
@@ -19,7 +16,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["jest", "jsx-a11y"],
+  "plugins": ["jsx-a11y"],
   "root": true,
   "rules": {
     "@typescript-eslint/comma-dangle": "off",
@@ -43,7 +40,19 @@
       }
     ],
     "react/jsx-one-expression-per-line": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-wrap-multilines": [
+      "error",
+      {
+        "arrow": "parens",
+        "assignment": "parens",
+        "condition": "ignore",
+        "declaration": "parens",
+        "logical": "ignore",
+        "prop": "ignore",
+        "return": "parens"
+      }
+    ]
   },
   "settings": {
     "react": {

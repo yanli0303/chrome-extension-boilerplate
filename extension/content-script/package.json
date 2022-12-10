@@ -1,0 +1,19 @@
+{
+  "name": "content-script",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "del -f coverage ../dist/content-script",
+    "format": "prettier --write src",
+    "lint": "eslint --ext=.ts,.tsx src",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "build": "node esbuild.js",
+    "rebuild": "yarn clean && yarn build",
+    "dev": "ESBUILD_WATCH=true yarn build"
+  },
+  "dependencies": {
+    "@localhost/chrome": "*",
+    "@localhost/utils": "*"
+  }
+}

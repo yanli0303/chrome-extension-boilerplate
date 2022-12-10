@@ -1,0 +1,13 @@
+{
+  "singleQuote": true,
+  "importOrder": ["^react", "^[^@.]", "^@", "^[.]"],
+  "importOrderSortSpecifiers": true,
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "printWidth": 200
+      }
+    }
+  ]
+}

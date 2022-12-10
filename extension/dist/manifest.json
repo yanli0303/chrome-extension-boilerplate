@@ -1,0 +1,33 @@
+{
+  "action": {
+    "default_popup": "popup/index.html"
+  },
+  "background": {
+    "service_worker": "background/index.js"
+  },
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "js": ["content-script/index.js"],
+      "matches": ["*://*/*"],
+      "run_at": "document_end"
+    }
+  ],
+  "description": "Chrome and Edge browser extension",
+  "homepage_url": "https://github.com/yanli0303/chrome-extension-boilerplate",
+  "host_permissions": ["*://*/*"],
+  "manifest_version": 3,
+  "name": "Browser Extension",
+  "options_ui": {
+    "open_in_tab": true,
+    "page": "options/index.html"
+  },
+  "permissions": ["storage"],
+  "version": "1.0",
+  "web_accessible_resources": [
+    {
+      "matches": ["*://*/*"],
+      "resources": ["content-script/*", "images/*"]
+    }
+  ]
+}

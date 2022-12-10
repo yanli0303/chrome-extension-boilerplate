@@ -1,0 +1,27 @@
+{
+  "name": "@localhost/ui",
+  "description": "Reusable React UI components for the extension project.",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index",
+  "types": "dist/index",
+  "scripts": {
+    "clean": "del coverage dist",
+    "format": "prettier --write src",
+    "lint": "eslint --ext=.ts src",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "build": "tsc",
+    "rebuild": "yarn clean && yarn build",
+    "dev": "yarn build --watch --preserveWatchOutput"
+  },
+  "dependencies": {
+    "@mui/icons-material": "^5.10.16",
+    "@mui/material": "^5.10.17",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "files": [
+    "dist"
+  ]
+}
